@@ -4,6 +4,8 @@
 \usepackage{amssymb,amsmath}
 \usepackage{graphicx}
 \usepackage{mathrsfs} %for \mathscr
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref} % navega por el doc
+
 
 \title{Lectures on General Relativity}
 \author{Juan Guarin, Antonio Calixto}
@@ -114,24 +116,28 @@ We note that a general Galilean transformation is of the form
 \begin{equation}
 	T(t,\vec{x})=(t+s,R\vec{x}+\vec{u}t+\vec{w})\,,\, s\in\Re\,,\,\vec{u},\vec{w}\in\Re^3\,,\,R\in SO(3,\Re) \label{eq:generalT}
 \end{equation}
-so acording to the Galileo's Principle of Relativity the laws of physics must remain the same under coordinate transformations $(t,\vec{x})\mapsto (t',\vec{x}')$ that in case of Newtonian physics are the Galilean transformations. This kind of invariance is that we call covariance, wich express specificly that the structure\footnote{This idea of covariance is present in all classical physics. In GR exists the Principle of General Covariance that uses this idea as is discussed in \cite{weinberg}} of the equation remains the same. For clarify this ideas we will do an example. Let's take the Newton's second law for a system of a single particle
+so acording to the Galileo's Principle of Relativity the laws of physics must remain the same under coordinate transformations $(t,\vec{x})\mapsto (t',\vec{x}')$ that in case of Newtonian physics are the Galilean transformations. This kind of invariance is that we call covariance, wich express specificly that the structure\footnote{This idea of covariance is present in all classical physics. In GR exists the Principle of General Covariance that uses this idea as is discussed in \cite{weinberg}} of the equation remains the same. An equation that preserve its form under Galilean transformations and the transformed equation do not involves quantities related to the original frame is called \textsc{Galilean invariant}.
+
+\subsubsection*{Example 1. Newton's second law for a single particle in a scalar potential}
+
+For clarify this ideas we will do an example. Let us take the Newton's second law for a system of a single particle
 \begin{equation}
 	\vec{F}=\dot{\vec{p}} \label{eq:F = dot p}
 \end{equation}
 
-Also let's assume that the particle is inmersed in a scalar potential field $U(||\vec{r}-\vec{r}_0||)$ that depends only in the distance relative to some point $\vec{r}_0$. So that the Newton's second law of motion converts in
+Let us assume that the particle is inmersed in a scalar potential field $U(||\vec{r}-\vec{r}_0||)$ that depends only in the distance relative to some point $\vec{r}_0$. So that, the Newton's second law of motion converts in
 \begin{equation}
 	\vec{\nabla}U(||\vec{r}-\vec{r}_0||) = \dot{\vec{p}} \label{eq:2nd Law}
 \end{equation}
-So now we make a coordinate transformation $\vec{r}\to\vec{r}\,'$ of the form of \ref{eq:generalT} but changing $R\to A$ for have a convenient notation. Firstly, we note that the distance ${R:=||\vec{r}-\vec{r}_0||=||\vec{r}\,'-\vec{r}\,'_0||:=R'}$ remain the same by definition of Galilean transformation. This implies that the scalar potential remain the same ${U(R)=U(R')}$. Secondlly, for the momentum we get
+Now we make a coordinate transformation $\vec{r}\to\vec{r}\,'$ of the form of \ref{eq:generalT} but changing $R\to A$ for have a convenient notation. Firstly, we note that the distance ${R:=||\vec{r}-\vec{r}_0||=||\vec{r}\,'-\vec{r}\,'_0||:=R'}$ remain invariant by definition of Galilean transformation. This implies that the scalar potential remain the same ${U(R)=U(R')}$. Secondlly, for the momentum we get
 \begin{equation}
 	\frac{d\vec{p}}{dt} = \frac{dm}{dt}\vec{v}+ m\frac{d\vec{v}}{dt} \label{eq:dpdt}
 \end{equation}
-Then using the assumption that $m=m'$ by experimental facts for non-relativistic physics, and as $t'=t+s$ with $s$ a constant we have
+Then, using the assumption that $m=m'$, by experimental facts for non-relativistic physics, and as $t'=t+s$ with $s$ a constant we have
 \begin{equation}
 \frac{dm}{dt}=\frac{dm'}{dt'} \underbrace{\frac{dt'}{dt}}_{=1}=\frac{dm'}{dt'} \label{eq:dmdt}
 \end{equation}
-As $dt=dt'$ we will use the notation $\dot{\vec{a}}$ for the time derivate of a vector $\vec{a}$ indistinguishably for $t$ and $t'$. For the position vector we have
+As $dt=dt'$ we will use the notation $\dot{\vec{a}}$ for the time derivate of a vector field $\vec{a}$ indistinguishably for $t$ and $t'$. For the position vector we have
 \begin{equation}
 	 \vec{r}\,' = A\vec{r} + \vec{u}t+\vec{w} \label{eq:r}
 \end{equation}
@@ -159,13 +165,13 @@ Equation \ref{eq:r} holds for every position vector $\vec{r}$ in $\Re^3$, in par
 \end{equation}
 And so, using \ref{eq:r}
 \begin{equation}
-	\vec{r}\,'-\vec{r}\,'_0 = A(\vec{r}-\vec{r'})
+	\vec{r}\,'-\vec{r}\,'_0 = A(\vec{r}-\vec{r'}) \label{eq:difference r}
 \end{equation}
 Then, equation \ref{eq:grad U} can be written as
 \begin{equation}
 	\vec{\nabla} U(R)  = \frac{\partial  U}{\partial R'} A^{-1} \frac{\vec{r}\,'-\vec{r}\,'_0}{|| \vec{r}\,'-\vec{r}\,'_0 ||} = A^{-1} \frac{\partial U(R')}{\partial R'} \hat{R}'=A^{-1}\vec{\nabla}\,'U(R') \label{eq:t nabla U}
 \end{equation}
-Finally, by equations \ref{eq:t nabla U} and \ref{eq: t dpdt} the Newton's second law \ref{eq:2nd Law} transform as
+Finally, by equations \ref{eq:t nabla U} and \ref{eq: t dpdt} the Newton's second law of equation \ref{eq:2nd Law} transform as
 \begin{equation}
 	A^{-1}\vec{\nabla}\,'U(R') = A^{-1}\left( \frac{d\vec{p}\,'}{dt'}-\frac{dm'}{dt'}\vec{u}\right)
 \end{equation}
@@ -179,9 +185,61 @@ By assuming that the particle do not change its mass $dm' / dt'=0$ and by noting
 	\vec{F}\,' = \dot{\vec{p}}\,' \label{eq: F' = dot p'}
 \end{equation}
 
-We can see that the equation \ref{eq: F' = dot p'} keep his form under Galilean transformations, and equally important, it is completely determined by quantities of its own reference frame. It do not involves variables related to another inertial frame, as for example its relative velocity  or relative orientation of axes to some other reference frame. In fact, when we develope a Galilean transformation of coordinates $(t,\vec{r})\mapsto (t',\vec{r}\,')$
+We can see that the equation \ref{eq:F = dot p} keep his form under Galilean transformations (the equation is Galilean invariant), and equally important, it is completely determined by quantities of its own reference frame. It do not involves variables related to another inertial frame, as for example its relative velocity  or relative orientation of axes. In fact, when we develope a Galilean transformation of coordinates as equation \ref{eq:generalT} we expected that the new equation do not depend on the relative velocity to the previous coordinate system, and this is because we want that there woud not exits privileged reference frames for the physics of a phenomenon.
 
-\subsection*{Lorentz's Invariance}
+\subsubsection*{Example 2. An equation that is not Galilean invariant}
+Let us take a charged particle inmerse in a homogeneus and constant magnetic field (see Fig. \ref{fig:cparticle}). The equation of motion of the particle is of the form
+\begin{equation}
+	\dot{\vec{p}} = q\vec{v}\times \vec{B} \label{eq:motion1}
+\end{equation}
+
+We employ a galilean transformation like the equation \ref{eq:generalT}, so we can use equations \ref{eq: t dpdt} and \ref{eq:dotr}
+\begin{equation}
+	A^{-1} \left( \frac{d\vec{p}\,'}{dt'}-\frac{dm'}{dt'}\vec{u} \right) = q A^{-1}(\vec{v}\,'-\vec{u})\times \vec{B}
+\end{equation}
+
+Multiplying both side with A to the left, taking a constant mass, and assuming that the magnetic field change a little $\vec{B} \cong \vec{B}\,'$ we get
+\begin{equation}
+	\dot{\vec{p}}\,' = q (\vec{v}\,'-\vec{u})\times \vec{B}\,' \label{eq:motion2}
+\end{equation}
+
+Obviously, this last equation is not the equation of motion of the charged particle in the new system of reference because we need to consider the electric force, that appears because of the transformation of electromagnetic fields. This derivation is only pedagogical to show one idea. As we can see equations \ref{eq:motion1} and \ref{eq:motion2} differs from the existence of relative velocity vector $\vec{u}$. So, equation \ref{eq:motion1} is not truly Galilean invariant because of this $\vec{u}$ vector. Let see what happen when we apply a second Galilean transformation $T_2$
+\begin{equation}
+	T_2((t',\vec{r}\,')) =\left(t'+a, D \vec{r}\,'+\vec{\vartheta}t + \vec{b}\right),\, D\in SO(3,\Re)\,,\, \vec{\vartheta},\vec{b}\in\Re^3\,,\,a\in\Re
+\end{equation}
+If we replace $\vec{r}\,'$ from equation \ref{eq:r}, and $t'=t+s$ we obtain the transformation $T_3$
+\begin{equation}
+	T_3((t,\vec{r}))= \left(t+\underbrace{(s+a)}_{s^*},\underbrace{DA}_{A^*}\vec{r}+\underbrace{(D\vec{u}+\vec{\vartheta})}_{\vec{u}\,^*}t+\underbrace{(D\vec{w}+\vec{b})}_{\vec{b}\,^*}\right)
+\end{equation}
+\begin{equation}
+	T_3((t,\vec{r})) = \left(t+s^*, A^*\vec{r}+\vec{u}\,^*t+\vec{b}\,^* \right)
+\end{equation}
+Then, if we transform equation \ref{eq:motion2} in frame $S'$ with $T_2$  it will be like transform equation \ref{eq:motion1} in frame $S$ with $T_3$. This implies that the transformated equation of \ref{eq:motion2} using $T_2$ is
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = 0.5 \linewidth]{images/charged_particle_homogeneus_B.jpeg}
+	\caption{Charged particle in a homogeneous magnetic field $\vec{B}$}
+	\label{fig:cparticle}
+\end{figure}
+
+\begin{equation}
+	\dot{\vec{p}}\,''=(\vec{v}\,''-\vec{u}\,^*)\times \vec{B}\,'' \label{eq:motion3}
+\end{equation}
+where we also use that $\vec{B}\,''\cong \vec{B}\,'$. Therefore, we see that equation \ref{eq:motion2} is equal to equation \ref{eq:motion3} in structure, being $\vec{u}$ and $\vec{u}\,^*$ the relative velocities of the frames $S'$ and $S''$ to the original one $S$,respectively. By expressing a non Galilean invariant equation as \ref{eq:motion1} in another frame we got a Galilean invariant equation\footnote{This idea of take any equation and see how it looks in other frame, in order to obtain a covariant equation, is presented in chapter 4 of \textit{Weinberg. Gravitation and Cosmology}\cite{weinberg}}. This lead us to think that invariance under Galilean transformation is not the essential part of the Galileo's Principle of Relativity. Actuallt, the key point is that the equation do not concern to relative quantities to other inertial systems besides its covariant itself.
+
+We also note that when $\vec{u}=0$ in \ref{eq:motion1} we recover the original form of the equation in frame $S$. We can say that this equation in fact it is covariant but under the structure of equation \ref{eq:motion1}. This means that if we write \ref{eq:motion1} as 
+$$\dot{\vec{p}}=q(\vec{v}-\vec{0})\times \vec{B}$$
+then it will be keep this structure under Galilean transformations. This is a covariance in other sense that in the Galileo's Principle of Relativity as we point it out before. This is more likely that a generalized covariance, in the sense that \ref{eq:motion1} is covariant under Galilean transformations althought a velocity vector $\vec{u}$ comes out after the transformation; and that covariance is because we can say that the originally equation \ref{eq:motion1} already have this vector $\vec{u}$ as $\vec{0}$.
+
+\subsection*{Specital Relativity Principle}
+The basic postulates of the Special Relativity can be written as\footnote{see \cite{goldstein}}
+\begin{itemize}
+	\item[\textit{1.}] \textit{The laws of physics are the same to all intertial observers.}
+	\item[\textit{2.}] \textit{The speed of light is the same to all inertial observers.}
+\end{itemize}
+
+The first postulate can be called the S
+
 \subsection*{Principle of General Covariance}
 
 \bibliography{References.bib}
