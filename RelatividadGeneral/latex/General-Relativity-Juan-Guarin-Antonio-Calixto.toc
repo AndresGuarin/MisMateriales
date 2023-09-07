@@ -1,0 +1,10 @@
+\contentsline {chapter}{\numberline {1}Invariance vs covariance}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Fundamental concepts}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Mathematical notion of invariance}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Physicall notion of covariance}{4}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}The idea behind Equivalence Principle}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Galileo's Principle of Relativity}{6}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Example 1. Newton's second law for a single particle in a scalar potential}{8}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Example 2. An equation that is not Galilean invariant}{10}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Specital Relativity Principle}{11}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Principle of General Covariannce}{13}{section.1.5}%
